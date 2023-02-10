@@ -4,12 +4,12 @@ This reproduces issue with Groovy traits and Gradle incremental compilation.
 
 Steps to reproduce:
 1. git clone git@github.com:asodja/groovy-traits-compilation-reproducer.git
-2. run ./gradlew :lib:compileGroovy
+2. run `./gradlew :lib:compileGroovy --no-build-cache`
 3. Change `println("a")` in MyTest.groovy to `println("b")`
-4. run ./gradlew :lib:compileGroovy again
+4. run `./gradlew :lib:compileGroovy --no-build-cache` again
 5. See error
 
-To resolve the issue run `./gradlew :lib:compileGroovy --rerun-tasks`
+To resolve the issue run `./gradlew :lib:compileGroovy --no-build-cache --rerun-tasks`
 
 Exception thrown:
 ```
